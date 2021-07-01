@@ -8,7 +8,7 @@ import './App.css';
 
 function App() {
   const [loading, setLoading] = useState(false);
-  const [city, setCity] = useState("");
+  const [city, setCity] = useState("false");
   const [results, setResults] = useState({
     country: "",
     cityName: "",
@@ -18,6 +18,7 @@ function App() {
   });
   const getWeather = (e) => {
     e.preventDefault();
+    setLoading(true);
     axios.get(`https://api.weatherapi.com/v1/current.json?key=8373ce37cc3a4b3c99870819213006&q=${city}&aqi=no`)
     .then(res => {
       setResults({
@@ -28,6 +29,7 @@ function App() {
         icon: res.data.current.condition.icon
       })
       setCity("");
+      setLoading(false);
     })
     .catch(err => alert("エラーが発生しました。ページをリロードして、もう一度トライしてください。"));
   }
