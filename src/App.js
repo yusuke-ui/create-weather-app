@@ -1,3 +1,4 @@
+import Loading from "./components/Loading";
 import { useState } from "react";
 import axios from "axios";
 import Title from "./components/Title";
@@ -6,7 +7,7 @@ import Results from "./components/Results";
 import './App.css';
 
 function App() {
-
+  const [loading, setLoading] = useState(false);
   const [city, setCity] = useState("");
   const [results, setResults] = useState({
     country: "",
