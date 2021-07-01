@@ -1,6 +1,6 @@
 
-const Results = (props) => {
-  const { cityName, country, temperature, conditionText, icon } = props.results;
+const Results = ({ results }) => {
+  const { cityName, country, temperature, conditionText, icon } = results;
   return (
     <div>
       {cityName && 
