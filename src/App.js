@@ -8,7 +8,7 @@ import './App.css';
 
 function App() {
   const [loading, setLoading] = useState(false);
-  const [city, setCity] = useState("false");
+  const [city, setCity] = useState("");
   const [results, setResults] = useState({
     country: "",
     cityName: "",
@@ -38,9 +38,8 @@ function App() {
     <div className="Wrapper">
       <div class="container">
         <Title />
-        <Form getWeather={getWeather} setCity={setCity} city={city} />
-        <Results results={results} />
-        {loading && <Loading />}
+        <Form getWeather={getWeather} city={city} setCity={setCity} />
+        {loading ? <Loading /> : <Results results={results} />}
       </div>
     </div>
   );
